@@ -11,9 +11,9 @@
 %define		_rel	2
 Summary:	Linux driver for DRM
 Summary(pl.UTF-8):	Sterownik dla Linuksa do DRM
-Name:		kernel%{_alt_kernel}-video-drm
+Name:		kernel%{_alt_kernel}-gpu-drm
 Version:	20090331
-Release:	%{_rel}@%{_kernel_ver_str}
+Release:	%{_rel}
 License:	GPL v2
 Group:		Base/Kernel
 # git clone --depth 1 git://anongit.freedesktop.org/git/mesa/drm kernel-video-drm
@@ -38,6 +38,20 @@ The DRM (Direct Rendering Manager) is a Linux kernel module that gives
 direct hardware access to DRI clients.
 
 %description -l pl.UTF-8
+DRM (Direct Rendering Manager) to moduł jądra Linuksa dający
+bezpośredni dostęp do sprzętu klientom DRI.
+
+%package -n kernel%{_alt_kernel}-gpu-drm-experimental
+Summary:	Linux driver for DRM
+Summary(pl.UTF-8):	Sterownik dla Linuksa do DRM
+Release:	%{_rel}@%{_kernel_ver_str}
+Group:		Base/Kernel
+
+%description -n kernel%{_alt_kernel}-gpu-drm-experimental
+The DRM (Direct Rendering Manager) is a Linux kernel module that gives
+direct hardware access to DRI clients.
+
+%description -n kernel%{_alt_kernel}-gpu-drm-experimental -l pl.UTF-8
 DRM (Direct Rendering Manager) to moduł jądra Linuksa dający
 bezpośredni dostęp do sprzętu klientom DRI.
 
@@ -70,12 +84,12 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-n kernel%{_alt_kernel}-video-drm
+%post	-n kernel%{_alt_kernel}-gpu-drm-experimental
 %depmod %{_kernel_ver}
 
-%postun	-n kernel%{_alt_kernel}-video-drm
+%postun	-n kernel%{_alt_kernel}-gpu-drm-experimental
 %depmod %{_kernel_ver}
 
-%files -n kernel%{_alt_kernel}-video-drm
+%files -n kernel%{_alt_kernel}-gpu-drm-experimental
 %defattr(644,root,root,755)
 /lib/modules/%{_kernel_ver}/kernel/drivers/gpu
