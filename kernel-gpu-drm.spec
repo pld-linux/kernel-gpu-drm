@@ -8,11 +8,11 @@
 %bcond_without	kernel		# don't build kernel modules
 %bcond_with	verbose         # verbose build (V=1)
 
-%define		_rel	3
+%define		_rel	1
 Summary:	Linux driver for DRM
 Summary(pl.UTF-8):	Sterownik dla Linuksa do DRM
 Name:		kernel%{_alt_kernel}-gpu-drm
-Version:	20090331
+Version:	20090517
 Release:	%{_rel}
 License:	GPL v2
 Group:		Base/Kernel
@@ -20,7 +20,7 @@ Group:		Base/Kernel
 # cd kernel-video-drm
 # git archive master --prefix drm/ | bzip2 > drm-$(date +%Y%m%d).tar.bz2
 Source0:	drm-%{version}.tar.bz2
-# Source0-md5:	968740b4883bf219cf831f585184f614
+# Source0-md5:	641adc885eb5cd3453c470de0d928b58
 URL:		http://dri.freedesktop.org/wiki/DRM
 %{?with_dist_kernel:BuildRequires:	kernel%{_alt_kernel}-module-build >= 3:2.6.20.2}
 BuildRequires:	rpmbuild(macros) >= 1.379
