@@ -8,7 +8,7 @@
 %bcond_without	kernel		# don't build kernel modules
 %bcond_with	verbose         # verbose build (V=1)
 
-%define		_rel	2
+%define		_rel	3
 Summary:	Linux driver for DRM
 Summary(pl.UTF-8):	Sterownik dla Linuksa do DRM
 Name:		kernel%{_alt_kernel}-gpu-drm
